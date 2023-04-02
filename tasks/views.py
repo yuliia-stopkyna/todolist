@@ -46,8 +46,7 @@ class TaskUpdateStatusView(generic.UpdateView):
         task = self.get_object()
         if task.is_done:
             task.is_done = False
-            task.save()
         else:
             task.is_done = True
-            task.save()
+        task.save()
         return HttpResponseRedirect(reverse("tasks:task-list"))
